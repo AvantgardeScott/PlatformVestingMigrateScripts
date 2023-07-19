@@ -24,8 +24,9 @@ const main = async () => {
     const wallets = bucket.userWallets.map((wallet) => wallet);
     while (wallets.length > 0) {
       try {
-        const params = wallets.splice(0, 20);
-        const tx = await bucketContract.removeWalletListFromVesting(params);
+        const params = wallets.splice(0, 2);
+	const estimatedGasLimit = await bucketContract.estimateGas.removeWalletListFromVesting(params);        
+	const tx = await bucketContract.removeWalletListFromVesting(params, {gasLimit: estimatedGasLimit.mul(2)});
         await tx.wait();
         await sleep(2000);
       } catch (e) {
@@ -50,7 +51,7 @@ const main = async () => {
           continue;
         }
 
-        const tx = await bucketContract.removeVesting(user.vestingId);
+        const tx = await bucketContract.removeVesting(user.vestingId, {gasLimit: 100000});
         await tx.wait();
         if (count > 0 && count % 10 == 0) {
           await sleep(20000);

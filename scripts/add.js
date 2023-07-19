@@ -6,11 +6,11 @@ import { InsertData } from "./constants.js";
 dotenv.config();
 
 const TGE_PERCENTAGE = 1;
-const START_TIME = 1689768000; // 2023-07-19 12:00:00 UTC
+const START_TIME = START TIME HERE; // 2023-07-19 12:00:00 UTC
 const TICK_COUNT = 19 * 30; // 19 months á 30 days
 const TICK_DURATION = 24 * 60 * 60; // 24h of 60min of 60sec;
 
-const bucketAddress = "DBM/OTC ADDRESS HERE";
+const bucketAddress = "DBM/OTC Address Here";
 const OFFSET = 0;
 const url = "https://mainnet.infura.io/v3/a9b568dde13449ee807495d533f80761";
 //const url = "https://goerli.infura.io/v3/a9b568dde13449ee807495d533f80761";
@@ -63,14 +63,13 @@ async function main() {
   }
 
   console.log(batch, userAddresses);
-  let tx = await newBucketContract.insertVestingList(batch);
+  let estimatedGas = await newBucketContract.estimateGas.insertVestingList(batch);
+  let tx = await newBucketContract.insertVestingList(batch, { gasLimit: estimatedGas });
   console.log("pool: schedule created");
   await tx.wait();
 
-  tx = await newBucketContract.insertWalletListToVesting(
-    vestingIDs,
-    userAddresses
-  );
+  estimatedGas = await newBucketContract.estimateGas.insertWalletListToVesting(vestingIDs, userAddresses);
+  tx = await newBucketContract.insertWalletListToVesting(vestingIDs, userAddresses, { gasLimit: estimatedGas });
   console.log("pool: user added");
   await tx.wait();
   console.log("done");
