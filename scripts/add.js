@@ -10,10 +10,10 @@ const START_TIME = 1689768000; // 2023-07-19 12:00:00 UTC
 const TICK_COUNT = 19 * 30; // 19 months á 30 days
 const TICK_DURATION = 24 * 60 * 60; // 24h of 60min of 60sec;
 
-const bucketAddress = "0x8377Ff4AEd639CBd75223aa9a9caB257864591Ca";
+const bucketAddress = "DBM/OTC ADDRESS HERE";
 const OFFSET = 0;
-//const url = "https://mainnet.infura.io/v3/a9b568dde13449ee807495d533f80761";
-const url = "https://goerli.infura.io/v3/a9b568dde13449ee807495d533f80761";
+const url = "https://mainnet.infura.io/v3/a9b568dde13449ee807495d533f80761";
+//const url = "https://goerli.infura.io/v3/a9b568dde13449ee807495d533f80761";
 
 // let users: userData[];
 

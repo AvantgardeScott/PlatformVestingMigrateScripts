@@ -6,8 +6,8 @@ import { BucketInfo } from "./constants.js";
 
 dotenv.config();
 
-//const url = "https://mainnet.infura.io/v3/a9b568dde13449ee807495d533f80761";
-const url = "https://goerli.infura.io/v3/a9b568dde13449ee807495d533f80761";
+const url = "https://mainnet.infura.io/v3/a9b568dde13449ee807495d533f80761";
+//const url = "https://goerli.infura.io/v3/a9b568dde13449ee807495d533f80761";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
