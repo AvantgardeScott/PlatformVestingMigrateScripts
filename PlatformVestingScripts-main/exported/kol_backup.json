@@ -1,0 +1,16 @@
+[
+  {
+    "isActive": true,
+    "userWallet": "0x7047c10CD4aeC003daF7c2D52bE139a982A8B9f1",
+    "spentAmount": "3333333500000000000000",
+    "vestingAmount": "66666670000000000000000",
+    "vestingId": 28
+  },
+  {
+    "isActive": true,
+    "userWallet": "0x8355942333c33440BfaFf2Fc523aAbCda83FD6F3",
+    "spentAmount": "1500000000000000000000",
+    "vestingAmount": "30000000000000000000000",
+    "vestingId": 11
+  }
+]
